@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://predibase.com/">
-    <img src="logo.png">
+    <img src="misc/images/logo.png">
   </a>
 </p>
 
