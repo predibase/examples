@@ -73,7 +73,7 @@ for (i, r), col in zip(
     curr_recs.drop_duplicates("article_id")[:3].iterrows(), st.columns(3)
 ):
     with col:
-        present_rec(r)
+        present_product_recommendation(r)
         st.button("Select", key=i, on_click=set_recommendation, args=[i])
 
 st.subheader("Generate email")
