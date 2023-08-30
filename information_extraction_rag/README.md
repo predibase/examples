@@ -10,7 +10,7 @@ This implementation runs on Predibase infrastructure. In order to run the provid
 sign up for a free trial Predibase account [here](https://predibase.com/free-trial). 
 
 ### How to use
-1. From the root of the `predibase/examples` project, run `pip install infoExtract`.
+1. From the root of the `predibase/examples` project, run `pip install information_extraction_rag`.
 2. Run the example:
-   - Notebook: `jupyter notebook infoExtract/examples/notebook.ipynb`.
-   - Streamlit app: `streamlit run infoExtract/examples/app.py`.
+   - Notebook: `jupyter notebook information_extraction_rag/examples/notebook.ipynb`.
+   - Streamlit app: `streamlit run information_extraction_rag/examples/app.py`.
