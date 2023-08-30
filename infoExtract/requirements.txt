@@ -1,0 +1,10 @@
+einops
+camelot-py
+tabula-py
+tabulate
+pydantic
+ludwig @ git+https://github.com/ludwig-ai/ludwig.git@master
+predibase
+s3fs
+openai
+tiktoken
