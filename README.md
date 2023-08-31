@@ -6,8 +6,6 @@
 
 # Predibase Examples
 
----
-
 <br/>
 
 ## Basic Examples
