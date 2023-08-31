@@ -6,7 +6,7 @@ This repo contains both a tutorial and a Streamlit app showcasing the combinatio
 <br/>
 
 ## Tutorial
-- Personalized_Email_Campaigns.ipynb: Jupyter notebook with the full example tutorial
+- `Personalized_Email_Campaigns.ipynb`: Jupyter notebook with the full example tutorial
 
 In this tutorial, we walk you through an end to end example of how to use Predibase to train a recommender system model
 for product recommendations and then use the output of that model to generate personalized email campaigns for each user.
@@ -17,9 +17,9 @@ This sample application recommends fashion products to a user and then generates
 recommended product.
 
 ### Files
-- app.py: Streamlit app
-- utils.py: Utility functions for the app
-- recommendations.csv: Sample recommendations used in the application
+- `app.py`: Streamlit app
+- `utils.py`: Utility functions for the app
+- `recommendations.csv`: Sample recommendations used in the application
 
 ### Usage
 
