@@ -3,7 +3,6 @@ from io import BytesIO
 
 import pandas as pd
 import streamlit as st
-from st_files_connection import FilesConnection
 
 from util import (
     generate_cta,
@@ -14,7 +13,6 @@ from util import (
 
 # Preloaded recommendations for sample application
 recs = pd.read_csv("recommendations.csv")
-conn = st.experimental_connection("s3", type=FilesConnection)
 
 # Sample customers to recommend products for
 sample_customers = {
@@ -33,9 +31,6 @@ def present_product_recommendation(product_recommendation: pd.Series):
     :return: None
     """
     st.markdown(product_recommendation["prod_name"])
-
-    with conn.open(product_recommendation["img_url"]) as img:
-        st.image(BytesIO(img.read()), width=64)
     st.caption(product_recommendation["detail_desc"][:100] + "...")
 
 
@@ -128,6 +123,6 @@ if "rec_idx" in st.session_state:
 
     # Email CTA Generation Section
     st.caption("CTA")
-    resp = generate_cta(rec, tone, llm, subject + intro + desc)
+    resp = generate_cta(tone, llm, subject + intro + desc)
     simulate_stream(resp)
     st.divider()

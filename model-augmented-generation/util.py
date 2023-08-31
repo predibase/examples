@@ -1,9 +1,10 @@
 import pandas as pd
+import os
 import streamlit as st
 from predibase import PredibaseClient
 
 pc = PredibaseClient(
-    token="INSERT TOKEN HERE"
+    token=os.environ["PREDIBASE_API_TOKEN"]
 )
 
 
