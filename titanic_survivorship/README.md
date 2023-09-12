@@ -1,5 +1,7 @@
 # Build and deploy a machine learning web app predicting titanic survivorship in 30 minutes with Predibase and Streamlit
 
+https://predibase-titanic.streamlit.app/
+
 ![titanic](titanic.png)
 
 Get the app running right away:
@@ -550,6 +552,6 @@ Make the app look fancier! Here are some ideas:
 - Compare predictions for multiple deployments.
 - Add the ability to upload and predict on the `test.csv` data from the Kaggle competition.
 
-You can check out our app at <>. The full code for this app is also available at [predibase/examples/titanic_survivorship](http://www.github.com/predibase/examples/titanic_survivorship).
+You can check out our app at https://predibase-titanic.streamlit.app/. The full code for this app is also available at [predibase/examples/titanic_survivorship](http://www.github.com/predibase/examples/titanic_survivorship).
 
 ![fancy_app](images/fancy_app.png)
