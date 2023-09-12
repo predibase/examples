@@ -99,12 +99,6 @@ This app showcases models that predict "what sorts of people were more likely to
             index=0,
             help="The supervised model used for prediction.",
         )
-        large_language_model = st.selectbox(
-            "Large Language Model",
-            options=["vicuna-13b", "flan-t5-xxl", "redpajama-7b", "falcon-7b"],
-            key="large_language_model",
-            help="Choose which LLM is used for zero-shot prediction. NOTE: The result may differ from the supervised model's prediction.",
-        )
 
         deployment = pc.get_deployment(deployment_name)
 
@@ -222,23 +216,24 @@ This app showcases models that predict "what sorts of people were more likely to
                 with code_expander:
                     st.code(sample_code, language="python")
 
-                st.markdown("""## Explainability using an LLM""")
+                st.markdown("""## Explainability using Llama-2-13b-chat""")
 
-                st.write("""NOTE: As the LLM is not trained on the Titanic dataset, the results may be inaccurate and inconsistent with the supervised model.""")
+                llm = pc.LLM("pb://deployments/llama-2-13b-chat")
 
-                responses = pc.prompt(
-                    f"""Given the following information about this passenger on the Titanic, predict whether or not they
-                    surivved, and explain why.
+                responses = llm.prompt(
+                    f"""A machine learning model has predicted that this passenger on the Titanic {'survived' if results.iloc[0]['Survived_predictions'] else 'did not survive'}.
 
-                    Sex: {Sex},
-                    Age: {Age},
-                    SibSp: {SibSp},
-                    Embarked: {Embarked},
-                    Parch: {Parch},
-                    Pclass: {PClass},
-                    Fare: {Fare}
-                    """,
-                    model_name=large_language_model,
+Here is information about the passenger:
+
+Sex: {Sex},
+Age: {Age},
+SibSp: {SibSp},
+Embarked: {Embarked},
+Parch: {Parch},
+Pclass: {PClass},
+Fare: {Fare}
+
+Why did the model make this prediction?""",
                     options={"max_new_tokens": 500}
                 )
                 for r in responses:
