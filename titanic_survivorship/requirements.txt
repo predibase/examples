@@ -1,0 +1,3 @@
+streamlit
+predibase
+predibase[predictor]
