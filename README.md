@@ -8,7 +8,7 @@
 
 <br/>
 
-## Basic Examples
+## Fine-tuning Basic Examples
 
 Here we provide a few examples to get you started with Predibase. These examples are designed to be easy to follow and
 provide a quick introduction to the main features of Predibase.
