@@ -11,22 +11,29 @@
 ## Basic Examples
 
 Here we provide a few examples to get you started with Predibase. These examples are designed to be easy to follow and
-provide a quick introduction to the main features of Predibase. Each example is a self-contained Jupyter Notebook that
-provides a walkthrough of the code and its output. You can run these examples on Google Colab or on your local machine.
-    
-* ### Fine-tuning Intro
-> Get started with fine-tuning using our quickstart example. Here you will fine-tune LLaMa2-7B on the open source 
-> [consumer complaints](https://www.kaggle.com/datasets/selener/consumer-complaint-database) dataset from Kaggle.
-
-
-* ### Fine-tuning Deep Dive
-> This example is a more in-depth look at fine-tuning. Here you will fine-tune LLaMa2-7B on the open source
+provide a quick introduction to the main features of Predibase.
 
 <br/>
 
-## Personalized Email Campaigns
+## Model Augmented Generation
 
 In this example, we train a recommender system model to predict the likelihood of a user purchasing a product based on
 their past product interactions. We then pass the output of this model to a Predibase hosted LLM to generate 
 personalized email outreach campaigns specific to each user. This example will show you both how to train the
-recommender system model and how to chain the outputs with Predibase LLM capabilities. 
+recommender system model and how to chain the outputs with Predibase LLM capabilities.
+
+<br/>
+
+## Information Extraction / RAG
+
+In this example, we parse a set of documents into chunks of text and then perform information extraction with Retrieval
+Augmented Generation (RAG). This directory contains a Jupyter notebook with the full example tutorial in addition to 
+utility functions supporting the example Streamlit application.
+
+<br/>
+
+## Supervised ML Web Application
+
+This example shows how to use Predibase to build a web application that is backed by a supervised ML model for make 
+predictions. Specifically, the application predicts a passenger's likelihood of surviving the Titanic disaster based on
+a variety of input features.
