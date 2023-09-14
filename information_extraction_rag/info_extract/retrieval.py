@@ -90,14 +90,14 @@ class PredibaseRetriever:
             self.predibase_client.create_dataset_from_df(df_to_index, name=self.index_name)
             index = self.predibase_client.get_dataset(self.index_name, connection_name="file_uploads")
 
-        self.predibase_client.prompt("", self.model_name, index_name=index)
+        self.predibase_client.prompt("", self.model_name, index=index)
 
     def load_index(self):
         pass
 
     def retrieve(self, query: str, k: int):
         index = self.predibase_client.get_dataset(self.index_name, connection_name="file_uploads")
-        return self.predibase_client.prompt(query, self.model_name, options={"retrieve_top_k": k}, index_name=index)
+        return self.predibase_client.prompt(query, self.model_name, options={"retrieve_top_k": k}, index=index)
 
 
 def get_retriever(retrieval_provider, **kwargs):
