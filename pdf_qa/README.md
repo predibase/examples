@@ -17,6 +17,8 @@ Install requirements.
 pip install -r requirements.txt
 ```
 
+Set API keys in `.env` file. See `.env.example` for an example.
+
 ## Run the app
 
 ```
