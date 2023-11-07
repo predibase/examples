@@ -8,60 +8,67 @@ logger = logging.getLogger(__name__)
 
 pc = PredibaseClient()
 
-#########################
-# Application Structure #
-#########################
+
+###############
+# Reset State #
+###############
+
+def reset_state():
+    print("RESETTING STATE")
+    st.session_state["intent"] = None
+    st.session_state.current_agent.reset()
+
+
+#####################
+# Application Setup #
+#####################
 
 # Page title
 st.title("Enhanced Chat System")
 
-# Setup columns
-col1, col2 = st.columns(2)
-
 # Setup session state
-
 if "intent" not in st.session_state:
     st.session_state["intent"] = None
+    st.session_state["current_agent"] = chat_agents[DEFAULT]
 
-###################
-# Agent Selection #
-###################
-with col1:
+##########################
+# Side Bar Configuration #
+##########################
+with st.sidebar:
     st.subheader("Tone Selection")
     agent_tone = st.radio(
         label="",
         # options=[DEFAULT, PROFESSIONAL, MILITARY, FRIENDLY],
-        options=[DEFAULT],
+        options=[DEFAULT, MILITARY],
     )
-    current_agent = chat_agents[agent_tone]
+    st.session_state.current_agent = chat_agents[agent_tone]
 
-#########################
-# Intent Classification #
-#########################
-with col2:
+    # Add spacing
+    st.text("")
+    st.text("")
+    st.text("")
+    st.text("")
+
     st.subheader("Intent")
     st.metric(label="", value=st.session_state.intent)
 
-# Product Recommendations
+######################
+# Chat Configuration #
+######################
 st.subheader("Agent Chat")
 
-print("CURRENT_AGENT: ", current_agent.external_chat_history)
-
 # Display chat messages from history on app rerun
-for message in current_agent.external_chat_history:
-    print("TESTING")
-    logger.info(current_agent.external_chat_history)
+for message in st.session_state.current_agent.external_chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
 # Accept user input
 if prompt := st.chat_input("Say something"):
-
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    simulate_stream(current_agent.chat_completion(prompt))
-
-    st.session_state.intent = current_agent.intent_classification(prompt)
+    simulate_stream(st.session_state.current_agent.chat_completion(prompt))
+    print("CHAT HISTORY: \n", "\n".join(st.session_state.current_agent.internal_chat_history))
+    st.session_state.intent = st.session_state.current_agent.intent_classification(prompt)
     st.experimental_rerun()
