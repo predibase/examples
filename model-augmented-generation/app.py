@@ -1,5 +1,4 @@
 import time
-from io import BytesIO
 
 import pandas as pd
 import streamlit as st
