@@ -17,7 +17,8 @@ FRIENDLY = "Friendly"
 
 chat_agents = {
     DEFAULT: ChatAgent(pc.LLM("pb://deployments/llama-2-13b-chat"), adapter=False),
-    MILITARY: ChatAgent(pc.get_model("Tone Matching Models", version=1)),
+    MILITARY: ChatAgent(pc.LLM("pb://deployments/llama-2-13b-chat"), adapter=True),
+    # MILITARY: ChatAgent(pc.get_model("Tone Matching Models", version=1)),
     # PROFESSIONAL: ChatAgent(pc.get_model("Enhanced Chat System", version=2)),
     # FRIENDLY: ChatAgent(pc.get_model("Enhanced Chat System", version=3)),
 }
